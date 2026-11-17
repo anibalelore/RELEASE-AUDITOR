@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "id": "owner-operations-dashboard",
+  "name": "Dueño revisando indicadores de operación",
+  "enabled": true,
+  "priority": "critical",
+  "source": "user_defined",
+  "actor": {
+    "kind": "person",
+    "role": "Propietario del negocio",
+    "permissions": [
+      "read_own_company_dashboard"
+    ]
+  },
+  "behavior": {
+    "goals": [
+      "Evaluar productividad",
+      "Detectar desvíos"
+    ],
+    "domain_expertise": "expert",
+    "digital_familiarity": "basic",
+    "languages": [
+      "es"
+    ],
+    "decision_style": "Escanea KPIs y compara períodos rápidamente",
+    "likely_mistakes": [
+      "Confunde dato acumulado con dato del día",
+      "No observa el indicador de actualización"
+    ],
+    "help_seeking": [
+      "Pregunta a su gerente"
+    ]
+  },
+  "context": {
+    "devices": [
+      "iPhone",
+      "laptop"
+    ],
+    "environment": [
+      "entre reuniones"
+    ],
+    "constraints": [
+      "poco tiempo",
+      "interrupciones"
+    ]
+  },
+  "critical_flows": [
+    "executive-dashboard"
+  ],
+  "scenarios": [
+    {
+      "id": "PC-OWN-01",
+      "flow": "executive-dashboard",
+      "trigger": "Datos del panel desactualizados",
+      "user_action": "Consulta KPI y asume que es actual",
+      "expected_system_response": "Muestra fecha de actualización y advierte caducidad",
+      "expected_recovery": "Permite refrescar o entender que el valor no es en tiempo real",
+      "severity": "P1"
+    }
+  ],
+  "notes": "Datos de muestra; el auditor debe verificar las condiciones reales del producto.",
+  "progression": {
+    "enabled": true,
+    "levels": [
+      {
+        "id": "erratico",
+        "error_patterns": [
+          "Confunde indicador de hoy con histórico y aprueba decisión basada en dato viejo",
+          "Pulsa acciones que no entiende"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "principiante",
+        "error_patterns": [
+          "Aplica filtro sin darse cuenta",
+          "No encuentra ayuda para interpretar un KPI"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "intermedio",
+        "error_patterns": [
+          "Confunde meta y realizado",
+          "Cambia fechas y olvida que hay filtro activo"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "competente",
+        "error_patterns": [
+          "Compara métricas por turnos",
+          "Consulta desde móvil entre interrupciones"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "experto",
+        "error_patterns": [
+          "Exporta, comparte y modifica filtros rápidamente",
+          "Realiza acciones simultáneas y verifica permisos"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      }
+    ]
+  }
+}

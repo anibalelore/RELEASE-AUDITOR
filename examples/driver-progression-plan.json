@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "actor_id": "driver",
+  "role": "Conductor",
+  "flows": [
+    "checkin"
+  ],
+  "levels": [
+    "erratico",
+    "principiante",
+    "intermedio",
+    "competente",
+    "experto"
+  ],
+  "tracks": [
+    {
+      "actor_id": "driver",
+      "flow": "checkin",
+      "levels": [
+        "erratico",
+        "principiante",
+        "intermedio",
+        "competente",
+        "experto"
+      ]
+    }
+  ],
+  "required_scenarios": [
+    {
+      "id": "driver-checkin-erratico-error_y_recuperacion",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "erratico",
+      "kind": "error_y_recuperacion",
+      "proposed_action": "Acciones equivocadas extremas: elemento/documento equivocado, respuesta literal, varios toques, retroceso o abandono",
+      "expected_recovery": "Definir resultado verificable: contención segura, guía y recuperación",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-erratico-camino_correcto",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "erratico",
+      "kind": "camino_correcto",
+      "proposed_action": "Completar el objetivo real con información correcta",
+      "expected_recovery": "Definir resultado verificable: tarea completa y datos consistentes",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-principiante-error_y_recuperacion",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "principiante",
+      "kind": "error_y_recuperacion",
+      "proposed_action": "No entiende términos o instrucciones; intenta orientación básica y corrección tras feedback",
+      "expected_recovery": "Definir resultado verificable: contención segura, guía y recuperación",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-principiante-camino_correcto",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "principiante",
+      "kind": "camino_correcto",
+      "proposed_action": "Completar el objetivo real con información correcta",
+      "expected_recovery": "Definir resultado verificable: tarea completa y datos consistentes",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-intermedio-error_y_recuperacion",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "intermedio",
+      "kind": "error_y_recuperacion",
+      "proposed_action": "Domina el camino normal; confunde excepción, estado intermedio o reintento",
+      "expected_recovery": "Definir resultado verificable: contención segura, guía y recuperación",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-intermedio-camino_correcto",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "intermedio",
+      "kind": "camino_correcto",
+      "proposed_action": "Completar el objetivo real con información correcta",
+      "expected_recovery": "Definir resultado verificable: tarea completa y datos consistentes",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-competente-error_y_recuperacion",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "competente",
+      "kind": "error_y_recuperacion",
+      "proposed_action": "Completa rápido en condiciones reales; interrupción, distracción y datos correctos",
+      "expected_recovery": "Definir resultado verificable: contención segura, guía y recuperación",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-competente-camino_correcto",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "competente",
+      "kind": "camino_correcto",
+      "proposed_action": "Completar el objetivo real con información correcta",
+      "expected_recovery": "Definir resultado verificable: tarea completa y datos consistentes",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-experto-error_y_recuperacion",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "experto",
+      "kind": "error_y_recuperacion",
+      "proposed_action": "Atajos, cambios rápidos, datos límite, múltiples pestañas, concurrencia o volumen",
+      "expected_recovery": "Definir resultado verificable: contención segura, guía y recuperación",
+      "status": "not_run"
+    },
+    {
+      "id": "driver-checkin-experto-camino_correcto",
+      "actor_id": "driver",
+      "flow": "checkin",
+      "level": "experto",
+      "kind": "camino_correcto",
+      "proposed_action": "Completar el objetivo real con información correcta",
+      "expected_recovery": "Definir resultado verificable: tarea completa y datos consistentes",
+      "status": "not_run"
+    }
+  ],
+  "note": "Plantilla de planificación; cada caso requiere datos, expectativa concreta y evidencia posterior. No ejecuta pruebas."
+}

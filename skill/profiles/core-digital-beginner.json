@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "core-digital-beginner",
+  "name": "Usuario principiante digital (plantilla)",
+  "enabled": true,
+  "priority": "normal",
+  "source": "bundled_template",
+  "actor": {"kind": "person", "role": "Usuario del producto", "permissions": []},
+  "behavior": {
+    "goals": ["Completar el trabajo con el mínimo de pasos"],
+    "domain_expertise": "variable",
+    "digital_familiarity": "basic",
+    "languages": [],
+    "decision_style": "Lee instrucciones literalmente y busca la acción más visible",
+    "likely_mistakes": ["Elige el primer botón para avanzar", "Confunde adjuntar archivo con fotografiar el documento correcto"],
+    "help_seeking": ["Pregunta a otro compañero", "Abandona si no encuentra salida"]
+  },
+  "context": {"devices": ["smartphone"], "environment": ["interrupciones"], "constraints": ["poco tiempo"]},
+  "critical_flows": [],
+  "scenarios": [],
+  "notes": "Plantilla genérica: no asumir que aplica a un usuario real sin evidencia."
+}

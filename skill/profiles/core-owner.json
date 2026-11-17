@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "core-owner",
+  "name": "Propietario que toma decisiones (plantilla)",
+  "enabled": true,
+  "priority": "normal",
+  "source": "bundled_template",
+  "actor": {"kind": "person", "role": "Propietario", "permissions": []},
+  "behavior": {
+    "goals": ["Entender resultados confiables y tomar decisiones"],
+    "domain_expertise": "expert",
+    "digital_familiarity": "variable",
+    "languages": [],
+    "decision_style": "Prioriza indicadores simples y resultados accionables",
+    "likely_mistakes": ["Toma un indicador atrasado como dato en tiempo real", "Confunde unidades o intervalos de fechas"],
+    "help_seeking": ["Consulta a gerente", "Exporta reporte"]
+  },
+  "context": {"devices": ["laptop", "smartphone"], "environment": ["reunión"], "constraints": ["interrupciones"]},
+  "critical_flows": [], "scenarios": [],
+  "notes": "Verificar permisos, exactitud y trazabilidad de los KPIs."
+}

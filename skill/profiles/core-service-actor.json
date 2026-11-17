@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "core-service-actor",
+  "name": "Integración externa de software (plantilla)",
+  "enabled": true,
+  "priority": "normal",
+  "source": "bundled_template",
+  "actor": {"kind": "system", "role": "Servicio externo / API", "permissions": []},
+  "behavior": {
+    "goals": ["Entregar mensajes válidos y consistentes"],
+    "domain_expertise": "not_applicable",
+    "digital_familiarity": "not_applicable",
+    "languages": [],
+    "decision_style": "Contrato y reintentos automáticos",
+    "likely_mistakes": ["Entrega eventos duplicados", "Devuelve datos incompletos o fuera de orden"],
+    "help_seeking": []
+  },
+  "context": {"devices": [], "environment": ["API remota"], "constraints": ["timeouts", "rate limit"]},
+  "critical_flows": [], "scenarios": [],
+  "notes": "No antropomorfizar servicios; evaluar contratos, latencia, idempotencia."
+}

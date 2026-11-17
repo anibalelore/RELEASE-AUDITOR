@@ -1,0 +1,105 @@
+{
+  "project": "EJEMPLO - NO HAY PRUEBAS EJECUTADAS",
+  "environment": "no configurado",
+  "build": "sin build verificado",
+  "timestamp": "2026-11-16T00:00:00Z",
+  "critical_flows": [
+    "login",
+    "roles",
+    "operacion-principal",
+    "persistencia",
+    "integraciones"
+  ],
+  "full_suite_executed": false,
+  "full_suite_evidence": [],
+  "production_parity_verified": false,
+  "production_parity_evidence": [],
+  "tests": [
+    {
+      "id": "QA-001",
+      "flow": "login",
+      "critical": true,
+      "status": "not_run",
+      "expected": "usuario de prueba autentica correctamente",
+      "observed": "NO EJECUTADO",
+      "action": "NO EJECUTADO",
+      "evidence": []
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "Este archivo es únicamente una plantilla: reemplazar por ejecución real"
+  ],
+  "human_factors": {
+    "applicable": true,
+    "personas": [
+      {
+        "id": "driver",
+        "context": "Conductor en check-in, móvil y poca familiaridad digital"
+      }
+    ],
+    "required_scenarios": [
+      {
+        "id": "DR-01",
+        "flow": "operacion-principal",
+        "persona_id": "driver",
+        "expected_recovery": "Rechazar foto no documental y guiar retoma"
+      }
+    ],
+    "field_validation_required": true,
+    "field_validation_completed": false,
+    "field_validation_summary": "",
+    "field_validation_evidence": []
+  },
+  "stakeholder_coverage": {
+    "actors": [
+      {
+        "id": "customer",
+        "role": "Cliente",
+        "context": "Primer uso de app; sin datos previos",
+        "type": "person",
+        "source": "inferred",
+        "critical": true
+      },
+      {
+        "id": "owner",
+        "role": "Dueño",
+        "context": "Consulta aprobación y estado del negocio",
+        "type": "person",
+        "source": "inferred",
+        "critical": true
+      },
+      {
+        "id": "backend",
+        "role": "Worker de integración",
+        "context": "Reintentos con API externa caída",
+        "type": "system",
+        "source": "inferred",
+        "critical": true
+      }
+    ],
+    "required_scenarios": [
+      {
+        "id": "STA-C01",
+        "actor_id": "customer",
+        "flow": "login",
+        "expected_outcome": "Ingreso o ayuda accionable",
+        "risk": "Bloqueo o autorización errónea"
+      },
+      {
+        "id": "STA-O01",
+        "actor_id": "owner",
+        "flow": "roles",
+        "expected_outcome": "Solo consultar información permitida",
+        "risk": "Exposición o permisos excesivos"
+      },
+      {
+        "id": "STA-I01",
+        "actor_id": "backend",
+        "flow": "integraciones",
+        "expected_outcome": "Retry seguro e idempotente",
+        "risk": "Doble registro o pérdida de datos"
+      }
+    ]
+  }
+}

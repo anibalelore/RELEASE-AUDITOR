@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "EJEMPLO FICTICIO — Plataforma logística",
+    "purpose": "Permitir recepción de camiones, check-in y seguimiento operativo. Este ejemplo NO describe un proyecto real."
+  },
+  "sources": [
+    "FICTICIO: frontend/routes/check-in.tsx",
+    "FICTICIO: server/api/visits.ts"
+  ],
+  "modules": [
+    {
+      "id": "checkin",
+      "name": "Check-in",
+      "purpose": "Recibir documentación y registrar ingreso"
+    },
+    {
+      "id": "ops",
+      "name": "Operaciones",
+      "purpose": "Supervisar visitas y atrasos"
+    }
+  ],
+  "flows": [
+    {
+      "id": "checkin-submit",
+      "name": "Enviar check-in",
+      "modules": [
+        "checkin",
+        "ops"
+      ],
+      "critical": true
+    },
+    {
+      "id": "ops-status",
+      "name": "Ver estado de visitas",
+      "modules": [
+        "ops"
+      ],
+      "critical": true
+    }
+  ],
+  "actors": [
+    {
+      "id": "driver",
+      "role": "Conductor",
+      "critical": true,
+      "source": "inferred",
+      "recommended_flows": [
+        "checkin-submit"
+      ]
+    },
+    {
+      "id": "owner",
+      "role": "Dueño / CEO",
+      "critical": true,
+      "source": "inferred",
+      "recommended_flows": [
+        "ops-status"
+      ]
+    },
+    {
+      "id": "ops-admin",
+      "role": "Supervisor",
+      "critical": true,
+      "source": "inferred",
+      "recommended_flows": [
+        "checkin-submit",
+        "ops-status"
+      ]
+    }
+  ],
+  "unknowns": [
+    "La aplicación y los usuarios son hipotéticos; confirmar datos reales antes de ejecutar."
+  ]
+}

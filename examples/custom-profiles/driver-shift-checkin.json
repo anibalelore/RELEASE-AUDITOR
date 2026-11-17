@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "driver-shift-checkin",
+  "name": "Conductor externo con prisa y poca práctica digital",
+  "enabled": true,
+  "priority": "critical",
+  "source": "user_defined",
+  "actor": {
+    "kind": "person",
+    "role": "Conductor que hace check-in",
+    "permissions": [
+      "self_checkin"
+    ]
+  },
+  "behavior": {
+    "goals": [
+      "Entrar al patio y hacer la entrega sin demoras"
+    ],
+    "domain_expertise": "expert",
+    "digital_familiarity": "basic",
+    "languages": [
+      "es"
+    ],
+    "decision_style": "Busca avanzar inmediatamente sin leer instrucciones largas",
+    "likely_mistakes": [
+      "Sube foto que no es un documento",
+      "Recorta la licencia",
+      "Indica dos colores para el camión"
+    ],
+    "help_seeking": [
+      "Pide ayuda en recepción"
+    ]
+  },
+  "context": {
+    "devices": [
+      "smartphone"
+    ],
+    "environment": [
+      "sol",
+      "ruido",
+      "fila de espera"
+    ],
+    "constraints": [
+      "red intermitente",
+      "prisa"
+    ]
+  },
+  "critical_flows": [
+    "driver-checkin"
+  ],
+  "scenarios": [
+    {
+      "id": "PC-DR-01",
+      "flow": "driver-checkin",
+      "trigger": "Se pide fotografiar licencia",
+      "user_action": "Sube una foto de sus zapatos",
+      "expected_system_response": "No certifica la imagen como licencia",
+      "expected_recovery": "Muestra una guía visual concreta y permite reintentar sin perder los demás datos",
+      "severity": "P1"
+    },
+    {
+      "id": "PC-DR-02",
+      "flow": "driver-checkin",
+      "trigger": "Campo color de camión",
+      "user_action": "Escribe dos colores",
+      "expected_system_response": "Acepta valor válido o explica si la información es opcional",
+      "expected_recovery": "Permite avanzar sin intervención de soporte innecesaria",
+      "severity": "P2"
+    }
+  ],
+  "notes": "Escenario sintético de ejemplo, NO un resultado de prueba real.",
+  "progression": {
+    "enabled": true,
+    "levels": [
+      {
+        "id": "erratico",
+        "error_patterns": [
+          "Fotografía zapatos o piso en vez de licencia",
+          "Pulsa continuar sin un documento"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "principiante",
+        "error_patterns": [
+          "Fotografía licencia fuera del marco",
+          "Confunde frente y reverso"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "intermedio",
+        "error_patterns": [
+          "Selecciona documento equivocado",
+          "Escribe dos colores del camión y duda cómo continuar"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "competente",
+        "error_patterns": [
+          "Realiza check-in y corrige remolque antes de enviar",
+          "Vuelve atrás por una llamada"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      },
+      {
+        "id": "experto",
+        "error_patterns": [
+          "Inicia dos check-ins por conexión intermitente",
+          "Reintenta envío y edita registro simultáneamente"
+        ],
+        "correct_strategy": "Completa el flujo sin datos inconsistentes y comprueba que la operación se persistió",
+        "context": "Condiciones del ejemplo, adaptar a la interfaz y riesgos reales"
+      }
+    ]
+  }
+}
